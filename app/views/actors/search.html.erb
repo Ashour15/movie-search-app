@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Actors</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-3">
+    <h1>Search Actors</h1>
+
+    <%= form_with url: actors_search_path, method: :get, class: 'text-center mb-3' do |form| %>
+      <div class="form-group">
+        <%= form.text_field :name, class: 'form-control', placeholder: "Enter actor's name" %>
+      </div>
+      <%= form.submit 'Search', class: 'btn btn-primary' %>
+    <% end %>
+
+    <% if @actor %>
+      <h2>Actor: <%= @actor.name %></h2>
+
+      <% if @movies.any? %>
+        <h3>Movies:</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Year</th>
+              <th>Director</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @movies.each do |movie| %>
+              <tr>
+                <td><%= movie.title %></td>
+                <td><%= movie.description %></td>
+                <td><%= movie.year %></td>
+                <td><%= movie.director %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>No movies found for this actor.</p>
+      <% end %>
+    <% else %>
+      <p>Actor not found.</p>
+    <% end %>
+  </div>
+</body>
+</html>
