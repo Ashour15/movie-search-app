@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_21_015247) do
+ActiveRecord::Schema.define(version: 2023_05_21_223443) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2023_05_21_015247) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_countries_on_name", unique: true
   end
 
   create_table "countries_movies", id: false, force: :cascade do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 2023_05_21_015247) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_filming_locations_on_name", unique: true
   end
 
   create_table "filming_locations_movies", id: false, force: :cascade do |t|
@@ -77,8 +79,15 @@ ActiveRecord::Schema.define(version: 2023_05_21_015247) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "actors_movies", "actors"
+  add_foreign_key "actors_movies", "movies"
+  add_foreign_key "countries_movies", "countries"
+  add_foreign_key "countries_movies", "movies"
+  add_foreign_key "filming_locations_movies", "filming_locations"
+  add_foreign_key "filming_locations_movies", "movies"
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"
 end
