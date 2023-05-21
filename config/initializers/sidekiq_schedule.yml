@@ -1,0 +1,3 @@
+weekly_job:
+  cron: "0 0 * * 0" # Runs every Sunday at midnight
+  class: AverageStarsWorker
