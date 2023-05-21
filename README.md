@@ -6,9 +6,6 @@ This is a Ruby on Rails application to show overview of the movies sorted by ave
 
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Requirements
 
