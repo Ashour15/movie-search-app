@@ -57,6 +57,13 @@ In designing the database and functionality of this application, the following a
 
 These assumptions were made based on the specific requirements and considerations of the application.
 
+## ERD Diagram
+
+You can view the Entity-Relationship Diagram (ERD) of the database structure below:
+
+[ERD Diagram PDF](https://github.com/Ashour15/movie-search-app/blob/main/erd.pdf)
+
+
 ## Todo List
 
 To further enhance the functionality and user experience of the application, the following tasks can be considered:
