@@ -55,6 +55,8 @@ In designing the database and functionality of this application, the following a
 
 5. **Review Frequency**: Reviews are not used to calculate the average stars in real-time. Instead, the calculation is performed during the weekly update. This approach reduces the number of times the calculation method is called and optimizes the system's performance. Reviews are recorded separately and associated with movies for reference.
 
+6. **Join Tables**: Separate tables have been created for the associations between `Movie` and related models such as `Actor`, `Country`, and `FilmingLocation`. The simpler `has_and_belongs_to_many` association is used for these relationships since there are no special requirements or callbacks associated with the join tables at the moment.
+
 These assumptions were made based on the specific requirements and considerations of the application.
 
 ## ERD Diagram
